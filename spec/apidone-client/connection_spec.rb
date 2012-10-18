@@ -29,15 +29,15 @@ describe "Connection" do
     before :each do 
       @list = @c.list("lenguajes")
       @rand_num = rand(100)
-      @repsonse = @c.update("lenjuages", "#{@list.first[:id]}", data = {:age=>@rand_num})
+      @response = @c.update("lenjuages", "#{@list.first[:id]}", data = {:age=>@rand_num})
     end
     
     it "response should be hash" do
-      @repsonse.class.should == Hash
+      @response.class.should == Hash
     end
     
     it "response should id" do
-      @repsonse[:age].should == @rand_num
+      @response[:age].should == @rand_num
     end
     
   end
