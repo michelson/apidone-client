@@ -46,7 +46,7 @@ module Apidone
       end
   
       def show(name, id)
-        response = @conn.get("/#{name}", id)
+        response = @conn.get("/#{name}/#{id}")
         JSON.parse response.body
       end
       

@@ -60,4 +60,16 @@ describe "Connection" do
     
   end
   
+  describe "when show resource" do
+    before :each do
+      @list = @c.list("lenguajes")
+      @id = @list.last["id"]
+      @resource = @c.show("lenguajes", @id )
+    end
+    
+    it "should find something" do
+      @resource.should_not be_empty
+    end
+  end
+  
 end
