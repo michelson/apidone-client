@@ -4,9 +4,7 @@ module Apidone
   module Client
     
     class CLI < Thor
-      include Utils
       include Thor::Actions
-      
       
       ### TODO: When these commands list grows big, we need to move them into a seperate commands.rb file
       map %w(--version -v) => 'info'
