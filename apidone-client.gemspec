@@ -6,7 +6,7 @@ require 'apidone-client/version'
 Gem::Specification.new do |gem|
   gem.name          = "apidone-client"
   gem.version       = Apidone::Client::VERSION
-  gem.authors       = ["Miguel Michelson"]
+  gem.authors       = ["Miguel Michelson", "Luis Mancilla", "Daniel Guajardo"]
   gem.email         = ["miguelmichelson@gmail.com"]
   gem.description   = "Apidone.com ruby api client"
   gem.summary       = "Apidone ruby client is a simple client."
