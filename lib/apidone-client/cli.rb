@@ -3,7 +3,7 @@ require "thor/group"
 module Apidone
   module Client
     
-    class Connection < Thor
+    class CLI < Thor
       include Utils
       include Thor::Actions
       
