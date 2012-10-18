@@ -41,6 +41,31 @@ Or install it yourself as:
     @c.show("lenjuages", "someid")
     
 ## Command line
+
+#### create
+
+    $ apidone create art -d=artenlinea --data=foo:bar
+    
+#### list
+
+    $ apidone list art -d=artenlinea
+    
+#### update
+
+    $ apidone update art -d=artenlinea --id=some_id --data=foo:bar_updated
+    
+#### delete
+
+    $ apidone show art -d=artenlinea --id=some_id
+
+#### delete
+
+    $ apidone delete art -d=artenlinea --id=some_id
+
+
+#### command help
+
+    $ apidone help [create, edit, update, list, show ]
   
 
 ## Contributing

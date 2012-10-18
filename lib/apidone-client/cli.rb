@@ -23,37 +23,48 @@ module Apidone
       
       map %w(--create -c) => 'create'
       desc "create", "Creates ApiDone resource"
-      def create(domain, resource, data={} )
-        connection(domain)
-        @c.create(resource, data)
+      method_option :data, :type => :hash, :default => {}, :required => true
+      method_option :domain, :aliases => "-d", :desc => "set domain", :required => true
+      def create(resource)
+        connection(options[:domain])
+        puts @c.create(resource, options[:data])
       end
       
       map %w(--update -u) => 'update'
       desc "update", "Updates ApiDone resource"
-      def update(domain, resource, data={})
-        connection(domain)
-        @c.update(resource, data)
+      method_option :data, :type => :hash, :default => {}, :required => true
+      method_option :domain, :aliases => "-d", :desc => "set domain", :required => true
+      method_option :id, :desc => "set id", :required => true
+      def update(resource)
+        connection(options[:domain])
+        puts @c.update(resource, options[:id], options[:data])
       end
       
       map %w(--destroy -d) => 'delete'
       desc "delete", "Delete ApiDone resource"
-      def delete(domain, resource, id)
-        connection(domain)
-        @c.update(resource, id)
+      method_option :data, :type => :hash, :default => {}, :required => true
+      method_option :domain, :aliases => "-d", :desc => "set domain", :required => true
+      method_option :id, :desc => "set id", :required => true
+      def delete(resource)
+        connection(options[:domain])
+        puts @c.update(resource, options[:id])
       end
       
       map %w(--list -l) => 'list'
       desc "list", "List ApiDone resource"
-      def list(domain, resource)
-        connection(domain)
-        @c.list(resource)
+      method_option :domain, :aliases => "-d", :desc => "set domain", :required => true
+      def list(resource)
+        connection(options[:domain])
+        puts @c.list(resource)
       end
       
       map %w(--show -s) => 'show'
       desc "show", "Show ApiDone resource"
-      def list(domain, resource)
-        connection(domain)
-        @c.list(resource)
+      method_option :domain, :aliases => "-d", :desc => "set domain", :required => true
+      method_option :id, :desc => "set id", :required => true
+      def show(resource)
+        connection(options[:domain])
+        puts @c.show(resource, options[:id])
       end
       
     end
