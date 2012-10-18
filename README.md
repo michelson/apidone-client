@@ -19,6 +19,8 @@ Or install it yourself as:
 ## Usage
 
 ### Usage in scripts
+
+    require "apidone-client"
   
 #### init connection:
   
