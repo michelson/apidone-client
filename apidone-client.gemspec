@@ -8,9 +8,9 @@ Gem::Specification.new do |gem|
   gem.version       = Apidone::Client::VERSION
   gem.authors       = ["Miguel Michelson"]
   gem.email         = ["miguelmichelson@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = "Apidone.com ruby api client"
+  gem.summary       = "Apidone ruby client is a simple client."
+  gem.homepage      = "http://apidone.com"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

@@ -1,6 +1,6 @@
 # Apidone::Client
 
-TODO: Write a gem description
+ApiDone ruby client.
 
 ## Installation
 
@@ -18,7 +18,30 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Usage in scripts
+  
+#### init connection:
+  
+    @conn = Apidone::Client::Connection.new("dojoruby")
+
+#### Create a resource:  
+  
+    @c.create("lenguajes")
+  
+#### List resources
+  
+    @c.list("lenguajes")
+  
+#### Edit , delete & show resources:
+
+    @c.update("lenjuages", "someid", {:name=>"ruby", :versions=>["1.8.7", "Ree", "rbx"]})
+  
+    @c.delete("lenjuages", "someid")
+  
+    @c.show("lenjuages", "someid")
+    
+## Command line
+  
 
 ## Contributing
 
