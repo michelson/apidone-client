@@ -1,6 +1,8 @@
+require 'pathname'
 require "apidone-client/version"
 require 'faraday'
 require 'json'
+
 module Apidone
   module Client
     
