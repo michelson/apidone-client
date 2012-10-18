@@ -1,7 +1,13 @@
 require "apidone-client/version"
-
+require 'faraday'
+require 'json'
 module Apidone
   module Client
-    # Your code goes here...
+    
+    ROOT_PATH = Pathname(__FILE__).dirname.expand_path
+
+    autoload  :CLI,           'apidone-client/cli.rb'
+    autoload  :Connection,    'apidone-client/connection.rb'
+
   end
 end

@@ -16,4 +16,14 @@ Gem::Specification.new do |gem|
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
+  
+  gem.add_runtime_dependency("thor")
+  gem.add_runtime_dependency("faraday")
+  gem.add_runtime_dependency("json")
+  
+  gem.add_development_dependency(%q<bundler>)
+  gem.add_development_dependency(%q<rspec>,           ["~> 2.6.0"])
+  
+  
+  
 end
