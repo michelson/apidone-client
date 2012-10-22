@@ -10,6 +10,6 @@ module Apidone
 
     autoload  :CLI,           'apidone-client/cli.rb'
     autoload  :Connection,    'apidone-client/connection.rb'
-
+    autoload  :Resource,      'apidone-client/resource.rb'
   end
 end

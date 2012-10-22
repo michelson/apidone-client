@@ -16,7 +16,7 @@ describe "Connection" do
     end
     
     it "should be hash" do
-      @response.class.should == Hash
+      @response.class.should == Apidone::Client::Resource
     end
     
     it "should not be blank" do
