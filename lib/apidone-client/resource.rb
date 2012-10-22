@@ -2,7 +2,9 @@ module Apidone
   module Client
     class Resource
       
+      attr_reader :data
       def initialize(data ={})
+        @data = data
         meta_fields(data)
       end
       
