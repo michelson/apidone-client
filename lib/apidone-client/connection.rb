@@ -26,7 +26,7 @@ module Apidone
             json_response = JSON.parse(response.body)
             data[:id] = json_response["id"]
         end
-        Apidone::Client::Resource.new( json_response)
+        show(name, data[:id])
       end
   
       def update(name, id, data = {})
