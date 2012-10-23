@@ -27,7 +27,7 @@ module Apidone
       method_option :domain, :aliases => "-d", :desc => "set domain", :required => true
       def create(resource)
         connection(options[:domain])
-        puts @c.create(resource, options[:data])
+        puts @c.create(resource, options[:data]).data
       end
       
       map %w(--update -u) => 'update'
@@ -37,7 +37,7 @@ module Apidone
       method_option :id, :desc => "set id", :required => true
       def update(resource)
         connection(options[:domain])
-        puts @c.update(resource, options[:id], options[:data])
+        puts @c.update(resource, options[:id], options[:data]).data
       end
       
       map %w(--destroy -d) => 'delete'
@@ -55,7 +55,9 @@ module Apidone
       method_option :domain, :aliases => "-d", :desc => "set domain", :required => true
       def list(resource)
         connection(options[:domain])
-        puts @c.list(resource)
+        @c.list(resource).each do |res|
+          puts res.data
+        end
       end
       
       map %w(--show -s) => 'show'
@@ -64,7 +66,7 @@ module Apidone
       method_option :id, :desc => "set id", :required => true
       def show(resource)
         connection(options[:domain])
-        puts @c.show(resource, options[:id])
+        puts @c.show(resource, options[:id]).data
       end
       
     end
