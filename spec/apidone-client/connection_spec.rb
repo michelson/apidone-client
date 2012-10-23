@@ -16,7 +16,7 @@ describe "Connection" do
     end
     
     it "should be hash" do
-      @response.class.should == Hash
+      @response.class.should == Apidone::Client::Resource
     end
     
     it "should not be blank" do
@@ -29,15 +29,15 @@ describe "Connection" do
     before :each do 
       @list = @c.list("lenguajes")
       @rand_num = rand(100)
-      @response = @c.update("lenjuages", "#{@list.first[:id]}", data = {:age=>@rand_num})
+      @response = @c.update("lenjuages", "#{@list.first.id}", data = {:age=> @rand_num })
     end
     
     it "response should be hash" do
-      @response.class.should == Hash
+      @response.class.should == Apidone::Client::Resource
     end
     
     it "response should id" do
-      @response[:age].should == @rand_num
+      @response.age.to_i.should == @rand_num
     end
     
   end
@@ -45,7 +45,7 @@ describe "Connection" do
   describe "when delete reosurce" do
     before :each do
       @list = @c.list("lenguajes")
-      @id = @list.last["id"]
+      @id = @list.last.id
       @deleted= @c.delete("lenguajes", @id )
     end
     
@@ -55,7 +55,7 @@ describe "Connection" do
     
     it "should not include the id" do
       @list = @c.list("lenguajes")
-      @list.map{|o| o["id"]}.should_not include(@id)
+      @list.map{ |o| o.id }.should_not include(@id)
     end
     
   end
@@ -63,12 +63,12 @@ describe "Connection" do
   describe "when show resource" do
     before :each do
       @list = @c.list("lenguajes")
-      @id = @list.last["id"]
+      @id = @list.last.id
       @resource = @c.show("lenguajes", @id )
     end
     
     it "should find something" do
-      @resource.should_not be_empty
+      @resource.should_not be_nil
     end
   end
   

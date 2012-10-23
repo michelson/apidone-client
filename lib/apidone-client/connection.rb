@@ -22,32 +22,30 @@ module Apidone
   
       def create(name, data = {})
         response = @conn.post "/#{name}", data
-    
         if response.status == 201
             json_response = JSON.parse(response.body)
             data[:id] = json_response["id"]
         end
-        data
+        show(name, data[:id])
       end
   
       def update(name, id, data = {})
         response = @conn.put "/#{name}/#{id}", data
-    
         if response.status == 201
           json_response = JSON.parse(response.body)
         end
-        
-        data
+        Apidone::Client::Resource.new data
       end
   
       def list(name)
         response = @conn.get "/#{name}"
-        JSON.parse response.body
+        collection = JSON.parse response.body
+        collection.collect{|o| Apidone::Client::Resource.new(o)}
       end
   
       def show(name, id)
         response = @conn.get("/#{name}/#{id}")
-        JSON.parse response.body
+        Apidone::Client::Resource.new(JSON.parse response.body)
       end
       
       def delete(name , id)

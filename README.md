@@ -18,11 +18,40 @@ Or install it yourself as:
 
 ## Usage
 
-### Usage in scripts
+### Command line
+
+    $ gem install apidone-client
+
+#### Create resource
+
+    $ apidone create art -d=artenlinea --data=foo:bar
+    
+#### List collection resources
+
+    $ apidone list art -d=artenlinea
+    
+#### Show resource
+
+    $ apidone show art -d=artenlinea --id=some_id
+    
+#### Update resource
+
+    $ apidone update art -d=artenlinea --id=some_id --data=foo:bar_updated
+
+#### Delete resource
+
+    $ apidone delete art -d=artenlinea --id=some_id
+
+#### Command help
+
+    $ apidone help [create, edit, update, list, show ]
+
+
+### Usage in ruby scripts
 
     require "apidone-client"
   
-#### init connection:
+#### Init connection:
   
     @conn = Apidone::Client::Connection.new("dojoruby")
 
@@ -41,33 +70,6 @@ Or install it yourself as:
     @c.delete("lenjuages", "someid")
   
     @c.show("lenjuages", "someid")
-    
-## Command line
-
-#### create
-
-    $ apidone create art -d=artenlinea --data=foo:bar
-    
-#### list
-
-    $ apidone list art -d=artenlinea
-    
-#### update
-
-    $ apidone update art -d=artenlinea --id=some_id --data=foo:bar_updated
-    
-#### delete
-
-    $ apidone show art -d=artenlinea --id=some_id
-
-#### delete
-
-    $ apidone delete art -d=artenlinea --id=some_id
-
-
-#### command help
-
-    $ apidone help [create, edit, update, list, show ]
   
 
 ## Contributing
@@ -77,3 +79,8 @@ Or install it yourself as:
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+
+## License
+
+Apidone::Client is released under the [MIT license](http://www.opensource.org/licenses/MIT).
